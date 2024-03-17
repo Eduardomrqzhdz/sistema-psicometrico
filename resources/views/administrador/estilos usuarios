@@ -1,0 +1,78 @@
+/*Estilos con bootstrap*/
+/*Usuarios*/
+
+ <div class="container">
+        <div class="row">
+            <h1 class="text-center mt-3">Usuarios</h1>
+            <div class="col-12">
+                <table class="table table-green table-striped  my-5">
+                    <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombre usuario</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Oficio</th>
+                        <th scope="col">Carrera</th>
+                        <th scope="col">Región</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    @foreach($user as $usuario)
+                        <tr>
+
+                            <td data-title="id">{{$loop->index}}</td>
+
+                            <td data-title="name">{{$usuario->name}}</td>
+                            <td data-title="email">{{$usuario->email}}</td>
+                            <td data-title="password">{{$usuario->sexo}}</td>
+                            <td data-title="edad">{{$usuario->edad}}</td>
+                            <td data-title="oficio">{{$usuario->oficio}}</td>
+                            <td data-title="carrera">{{$usuario->carrera}}</td>
+                            <td data-title="region">{{$usuario->region}}</td>
+                            <td data-titke="editar">
+                                <a href="{{route('user.edit',$usuario->id)}}">Editar</a>
+                            </td>
+
+
+                        </tr>
+                    @endforeach
+
+                    </tbody>
+                </table>
+            </div>
+            <!--Paginación-->
+            <div class="mt-4">
+                {{$user->links()}}
+            </div>
+        </div>
+    </div>
+
+/*Test para el administrador*/
+    <div class="container d-flex flex-row">
+        <div class="row">
+            <h1 class="text-center mt-3">Pruebas de salud mental</h1>
+
+                    @foreach($prueba as $pruebas)
+                    <div class="col-4 my-3">
+                            <div class="card text-center" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$pruebas->prueba}}</h5>
+                                    <p class="card-text">{{$pruebas->descripcion}}</p>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <a href="{{route('resultadosA',$noTest=$pruebas->id,['resultados'=>$pruebas])}}" class="card-link">
+                                        Ver prueba.</a>
+
+                                </div>
+                            </div>
+                    </div>
+                    @endforeach
+
+        </div>
+    </div>
