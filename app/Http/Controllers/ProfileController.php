@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
-use App\Models\carrera;
-use App\Models\oficio;
-use App\Models\region;
-use App\Models\sexo;
+use App\Models\Carrera;
+use App\Models\Oficio;
+use App\Models\Region;
+use App\Models\Sexo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
