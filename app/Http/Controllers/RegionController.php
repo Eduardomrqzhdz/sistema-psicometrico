@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\region;
+use App\Models\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
@@ -17,7 +17,7 @@ class RegionController extends Controller
             abort(403); // Acceso prohibido si la política falla
         }else {
             $regiones = Region::paginate(10);
-            return view('administrador.region.index', compact('regiones'));
+            return view('administrador.Region.index', compact('regiones'));
         }
     }
 
@@ -29,7 +29,7 @@ class RegionController extends Controller
         if (Gate::denies('admin')) {
             abort(403); // Acceso prohibido si la política falla
         }else {
-            return view('administrador.region.create');
+            return view('administrador.Region.create');
         }
     }
 
@@ -47,7 +47,7 @@ class RegionController extends Controller
         Region::create($request->all());
 
         session()->flash('swalCreate');
-        return redirect()->route('administrador.region.index');
+        return redirect()->route('administrador.Region.index');
     }
 
 
@@ -59,7 +59,7 @@ class RegionController extends Controller
         if (Gate::denies('admin')) {
             abort(403); // Acceso prohibido si la política falla
         }else {
-            return view('administrador.region.edit', compact('region'));
+            return view('administrador.Region.edit', compact('region'));
         }
     }
 
@@ -77,7 +77,7 @@ class RegionController extends Controller
         $region->update($request->all());
 
         session()->flash('swalUpdate');
-        return redirect()->route('administrador.region.index');
+        return redirect()->route('administrador.Region.index');
     }
 
     /**
@@ -87,6 +87,6 @@ class RegionController extends Controller
     {
         $region->delete();
 
-        return redirect()->route('administrador.region.index')->with('success', 'Region eliminado exitosamente.');
+        return redirect()->route('administrador.Region.index')->with('success', 'Region eliminado exitosamente.');
     }
 }
