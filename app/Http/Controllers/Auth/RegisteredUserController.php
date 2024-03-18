@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\carrera;
-use App\Models\oficio;
-use App\Models\region;
-use App\Models\sexo;
+use App\Models\Carrera;
+use App\Models\Oficio;
+use App\Models\Region;
+use App\Models\Sexo;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use App\Rules\CustomEmailValidation;
